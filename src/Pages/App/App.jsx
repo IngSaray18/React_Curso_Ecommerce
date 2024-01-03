@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Home } from '../Home'
 import { MyAccount } from '../MyAccount'
+import { ShoppingCartProvider } from '../../Context'
 import { MyOrder } from '../MyOrder'
 import { MyOrders } from '../MyOrders'
 import { NotFound } from '../NotFound'
@@ -24,10 +25,14 @@ const AppRoutes = () =>{
 
 function App() {
   return (
-    <BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
     <AppRoutes/>
     <Navbar/>
     </BrowserRouter>
+    </ShoppingCartProvider>
+       
+   
   )
 }
 
