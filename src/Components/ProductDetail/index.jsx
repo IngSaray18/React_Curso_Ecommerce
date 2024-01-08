@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { data } from "autoprefixer";
 export const ProductDetail = () => {
   const context = useContext(ShoppingCartContext);
-  console.log(context.productToShow);
   return (
     <aside
       className={` ${

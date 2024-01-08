@@ -6,8 +6,11 @@ import React from "react";
 
 export const ShoppingCartProvider = ({ children }) => {
   const [count, setcount] = useState(0);
+  const [productToShow, setproductToShow] = useState({});
+  const [cartProducts, setcartProduct] = useState([]);
+
+//    Pruduct Detail
   const [isProductDetailOpen, setisProductDetailOpen] = useState(false);
- const [productToShow, setproductToShow] = useState({});
   const openProductDetail = () => {
     setisProductDetailOpen(true);
   };
@@ -15,6 +18,15 @@ export const ShoppingCartProvider = ({ children }) => {
   const closeProductDetail = () => {
     setisProductDetailOpen(false);
   };
+
+//cart
+  const [Cart, setCart] = useState();
+  const OpenCart = () => setCart(true)
+  const CloseCart = () => setCart(false)
+
+
+  //    Order
+  const [order, setOrder] = useState([]);
 
   return (
     <ShoppingCartContext.Provider
@@ -25,7 +37,16 @@ export const ShoppingCartProvider = ({ children }) => {
         closeProductDetail,
         isProductDetailOpen,
         productToShow,
-        setproductToShow
+        setproductToShow,
+        cartProducts,
+        setcartProduct,
+        Cart,
+        setCart,
+        OpenCart,
+        CloseCart,
+        order,
+        setOrder
+
       }}
     >
       {children}
