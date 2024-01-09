@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export const ShoppingCartContext = createContext();
 
 import React from "react";
@@ -28,6 +28,22 @@ export const ShoppingCartProvider = ({ children }) => {
   //    Order
   const [order, setOrder] = useState([]);
 
+  // search
+  const [searchByTitle, setsearchByTitle] = useState();
+  console.log(searchByTitle);
+
+
+  // API products
+
+  const [items , setitems ] = useState();
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+ // fetch('https://api.escuelajs.co/api/v1/products')
+    .then(response => response.json())
+    .then (data => setitems(data) )
+  }, []);
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -45,7 +61,11 @@ export const ShoppingCartProvider = ({ children }) => {
         OpenCart,
         CloseCart,
         order,
-        setOrder
+        setOrder,
+        items,
+        setitems,
+        searchByTitle,
+        setsearchByTitle
 
       }}
     >

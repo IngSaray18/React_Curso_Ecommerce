@@ -4,6 +4,7 @@ import "./styles.css";
 import { ShoppingCartContext } from "../../Context";
 import { totalPrice } from "../../utils";
 import { OrderCard } from "../OrderCard";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 export const CheckoutSideMenu = () => {
   const context = useContext(ShoppingCartContext);
@@ -15,14 +16,14 @@ export const CheckoutSideMenu = () => {
 
  const handleCheckout = () =>{
     const orderToAdd  = {
-        date: '01.08.24',
+        date: 'Fecha',
         products: context.cartProducts,
-        totalProducts: context.cartProducts.lenth,
+        totalProducts: context.cartProducts.length,
         totalPrice: totalPrice(context.cartProducts)
     }
-
-    //context.setOrder([...context.order, orderToAdd ])
-    //context.cartProducts([])
+      //console.log(orderToAdd);
+    context.setOrder([...context.order, orderToAdd ])
+    context.setcartProduct([])
 }
 
 
@@ -38,7 +39,7 @@ export const CheckoutSideMenu = () => {
           <XMarkIcon className="h-6 w-6 text-black-500 cursor-pointer " />
         </div>
       </div>
-      <div className=" px-6 overflow-scroll " >
+      <div className=" px-6 overflow-scroll  flex-1 " >
         {context.cartProducts.map((product) => {
           return (
             <OrderCard
@@ -52,12 +53,15 @@ export const CheckoutSideMenu = () => {
           );
         })}
       </div>
-      <div className=" px-6 " >
+      <div className=" px-6 mb-6  " >
         <p className=" flex justify-between items-start " >
             <span className=" text-light " >Total: </span>
             <span className=" font-medium text-2xl " > ${totalPrice(context.cartProducts)} </span>
         </p>
-       <button onClick={ handleCheckout() } > Checkout </button> 
+        <Link to={'my-orders/last'} >
+        <button className=" w-full bg-black py-3 text-white rounded-lg mt-3 "  onClick={  () => handleCheckout() } > Checkout </button>
+        </Link>
+        
       </div>
 
     </aside>

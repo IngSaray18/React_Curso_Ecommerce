@@ -16,7 +16,7 @@ export const Card = (data) => {
     context.setcount(context.count + 1)
       context.setcartProduct([...context.cartProducts, productData])
       context.OpenCart()
-      console.log( context.cartProducts );
+    //  console.log( context.cartProducts );
    }
 
    const renderIcon = (id) =>{
