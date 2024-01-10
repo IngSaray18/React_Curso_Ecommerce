@@ -6,7 +6,7 @@ import { OrdersCard } from "../../Components/OrdersCard";
 import { Link } from "react-router-dom";
 export const MyOrders = () => {
   const context = useContext(ShoppingCartContext);
-  console.log(context.order);
+  //console.log(context.order);
   return (
     <Layout>
       <div className=" flex  w-80 items-center  justify-center  relative ">

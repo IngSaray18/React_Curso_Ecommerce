@@ -12,6 +12,7 @@ export const CheckoutSideMenu = () => {
   const handleDelete = (id)=>{
     const filteredProduct = context.cartProducts.filter(product => product.id != id)
     context.setcartProduct(filteredProduct)
+    context.setcount( context.count -1 )
 }
 
  const handleCheckout = () =>{
@@ -24,6 +25,7 @@ export const CheckoutSideMenu = () => {
       //console.log(orderToAdd);
     context.setOrder([...context.order, orderToAdd ])
     context.setcartProduct([])
+    context.setcount(0)
 }
 
 
