@@ -6,6 +6,31 @@ import { ProductDetail } from "../../Components/ProductDetail";
 export const Home = () => {
   const context = useContext(ShoppingCartContext);
 
+  const rederView = ()=>{
+
+    if (context.searchByTitle?.length > 0) {
+    if (context.filteredItems?.length > 0) {
+      return (
+        context.filteredItems?.map((item) => {
+          return <Card data={item} />;
+        })
+      ) 
+    }else{
+      return( 
+        <div>
+          <h1> no results matched your search </h1>
+        </div>
+      )
+    }
+     
+    }else{
+      return(
+        context.items?.map((item) => {
+          return <Card data={item} />;
+        })
+      )
+    }
+  }
   return (
     <Layout>
       <div className=" flex  w-80 items-center  justify-center  relative  mb-4 ">
@@ -19,9 +44,7 @@ export const Home = () => {
         className="  rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none "
       />
       <div className=" grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {context.items?.map((item) => {
-          return <Card data={item} />;
-        })}
+        { rederView() }
       </div>
       <ProductDetail />
     </Layout>
