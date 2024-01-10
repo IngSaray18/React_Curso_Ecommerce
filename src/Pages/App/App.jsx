@@ -9,6 +9,7 @@ import {SignIn} from '../SignIn'
 import { Navbar } from '../../Components/Navbar'
 import { CheckoutSideMenu } from '../../Components/CheckoutSideMenu'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { Categories } from '../Categories'
 
 const AppRoutes = () =>{
   let routes = useRoutes([
@@ -18,6 +19,7 @@ const AppRoutes = () =>{
     {path: '/my-orders/:id',element: <MyOrder/>},
     {path: '/My-orders',element: <MyOrders/>},
     {path: '/*',element: <NotFound/>},
+    {path: '/categories/:id',element: < Categories />},
     {path: '/SignIn',element: <SignIn/>}
 
   ])

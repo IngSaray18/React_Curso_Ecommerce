@@ -37,6 +37,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const [items , setitems ] = useState();
   const [filteredItems, setfilteredItems] = useState();
+  const [categoryItems, setcategoryItmes] = useState();
   
 
   useEffect(() => {
@@ -61,13 +62,12 @@ export const ShoppingCartProvider = ({ children }) => {
 
   }, [items , searchByTitle]);
   
-  const category = "jewelery"
 
   useEffect(() => {
-    if (category) {
-      setfilteredItems( filterItemsByCategory( items , category ) )
+    if (categoryItems) {
+      setfilteredItems( filterItemsByCategory( items , categoryItems ) )
     }
-  }, [ items ,category ]);
+  }, [ items ,categoryItems ]);
 
       console.log(filteredItems);
 
@@ -93,7 +93,8 @@ export const ShoppingCartProvider = ({ children }) => {
         setitems,
         searchByTitle,
         setsearchByTitle,
-        filteredItems
+        filteredItems,
+        setcategoryItmes
       }}
     >
       {children}

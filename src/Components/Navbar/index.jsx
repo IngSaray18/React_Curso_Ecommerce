@@ -20,23 +20,15 @@ export const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to={"/All"}
+            to={"/categories/jewelery"}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            All
+            Jewelery
           </NavLink>
         </li>
         <li>
           <NavLink
-            to={"/Clothes"}
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Clothes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={"/Electronics"}
+            to={"/categories/electronics"}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Electronics
@@ -44,28 +36,21 @@ export const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to={"/Furniture"}
+            to={"/categories/mens"}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Furniture
+            Men's clothing
           </NavLink>
         </li>
         <li>
           <NavLink
-            to={"/Toys"}
+            to={"/categories/womens"}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Toys
+            Women's clothing
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to={"/Others"}
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            others
-          </NavLink>
-        </li>
+       
       </ul>
       <ul className="flex items-center gap-3 ">
         <li className=" text-black/60 " >psaray@hotmail.com</li>
